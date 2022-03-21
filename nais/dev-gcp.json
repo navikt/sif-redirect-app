@@ -1,0 +1,17 @@
+{
+  "app": "sif-redirect-app",
+  "cluster": "dev-gcp",
+  "namespace": "dusseldorf",
+  "team": "dusseldorf",
+  "minReplicas": "1",
+  "maxReplicas": "1",
+  "ingresses": [
+    "https://sif-redirect-app.dev.nav.no/familie/sykdom-i-familien"
+  ],
+  "externalHosts": ["www.nav.no"],
+  "livenessPath": "/health/isAlive",
+  "readinessPath": "/health/isReady",
+  "env": {
+    "REDIRECT_INGRESS": "https://sykdom-i-familien.dev.nav.no/familie/sykdom-i-familien"
+  }
+}
