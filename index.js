@@ -20,17 +20,17 @@ app.get(`/health/isReady`, (req, res) => res.sendStatus(200));
 });*/
 
 // Test redirect - videresender til https://sykdom-i-familien.dev.nav.no/familie/sykdom-i-familien
-app.get("/familie/sykdom-i-familien/", (req, res) => {
+app.get(`${process.env.PUBLIC_PATH}/`, (req, res) => {
   res.redirect(301, process.env.REDIRECT_INGRESS);
 });
 
 // Test redirect - videresender til https://sykdom-i-familien.dev.nav.no/familie/sykdom-i-familien/arbeidsgiver
-app.get(`/familie/sykdom-i-familien/arbeidsgiver`, (req, res) => {
+app.get(`${process.env.PUBLIC_PATH}/arbeidsgiver`, (req, res) => {
   res.redirect(301, `${process.env.REDIRECT_INGRESS}/arbeidsgiver`);
 });
 
 // Test redirect - videresender til https://sykdom-i-familien.dev.nav.no/familie/sykdom-i-familien/helsepersonell
-app.get(`/familie/sykdom-i-familien/helsepersonell`, (req, res) => {
+app.get(`${process.env.PUBLIC_PATH}/helsepersonell`, (req, res) => {
   res.redirect(301, `${process.env.REDIRECT_INGRESS}/helsepersonell`);
 });
 

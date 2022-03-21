@@ -12,6 +12,7 @@
   "livenessPath": "/health/isAlive",
   "readinessPath": "/health/isReady",
   "env": {
+    "PUBLIC_PATH": "/familie/sykdom-i-familien",
     "REDIRECT_INGRESS": "https://sykdom-i-familien.dev.nav.no/familie/sykdom-i-familien"
   }
 }

@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "dev": "nodemon index"
+    "start": "node index"
   },
   "author": "NAV",
   "license": "MIT",
@@ -14,8 +13,5 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "helmet": "^5.0.2"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
   }
 }
