@@ -1,6 +1,6 @@
 FROM node:14
 
-WORKDIR /usr
+WORKDIR /usr/src
 
 COPY index.js .
 COPY node_modules ./node_modules
