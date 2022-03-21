@@ -12,12 +12,8 @@ app.use(
   })
 );
 
-app.get(`/familie/sykdom-i-familien/health/isAlive`, (req, res) =>
-  res.sendStatus(200)
-);
-app.get(`/familie/sykdom-i-familien/health/isReady`, (req, res) =>
-  res.sendStatus(200)
-);
+app.get(`/health/isAlive`, (req, res) => res.sendStatus(200));
+app.get(`/health/isReady`, (req, res) => res.sendStatus(200));
 
 /*app.get("/familie/sykdom-i-familien", (req, res) => {
   res.send("Hello from the 'test' URL");
