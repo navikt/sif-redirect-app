@@ -15,10 +15,6 @@ app.use(
 app.get(`/health/isAlive`, (req, res) => res.sendStatus(200));
 app.get(`/health/isReady`, (req, res) => res.sendStatus(200));
 
-/*app.get("/familie/sykdom-i-familien", (req, res) => {
-  res.send("Hello from the 'test' URL");
-});*/
-
 // Test redirect - videresender til https://sykdom-i-familien.dev.nav.no/familie/sykdom-i-familien
 app.get(`${process.env.PUBLIC_PATH}/`, (req, res) => {
   res.redirect(301, process.env.REDIRECT_INGRESS);
