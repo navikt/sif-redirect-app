@@ -23,8 +23,12 @@ app.use(
   })
 );
 
-app.get(`/health/isAlive`, (req, res) => res.sendStatus(200));
-app.get(`/health/isReady`, (req, res) => res.sendStatus(200));
+app.get(`/familie/sykdom-i-familien/health/isAlive`, (req, res) =>
+  res.sendStatus(200)
+);
+app.get(`/familie/sykdom-i-familien/health/isReady`, (req, res) =>
+  res.sendStatus(200)
+);
 
 app.get(`${PUBLIC_PATH}/`, (req, res) =>
   res.redirect(STATUS_CODE, `${REDIRECT_HOST}/tar-vare-pa`)
