@@ -9,7 +9,7 @@ For å kjøre opp app-en i dev:
 1.  `Lag .env filen i root: `.
 
 ```
-REDIRECT_INGRESS=http://localhost:8080/familie/sykdom-i-familien
+REDIRECT_HOST=http://localhost:8080
 PUBLIC_PATH=
 PORT=3001
 ```

@@ -9,10 +9,10 @@
     "https://sif-redirect-app.dev.nav.no/familie/sykdom-i-familien"
   ],
   "externalHosts": ["www.nav.no"],
-  "livenessPath": "/health/isAlive",
-  "readinessPath": "/health/isReady",
+  "livenessPath": "/familie/sykdom-i-familien/health/isAlive",
+  "readinessPath": "/familie/sykdom-i-familien/health/isReady",
   "env": {
     "PUBLIC_PATH": "/familie/sykdom-i-familien",
-    "REDIRECT_INGRESS": "https://sykdom-i-familien.dev.nav.no/familie/sykdom-i-familien"
+    "REDIRECT_HOST": "https://www.dev.nav.no"
   }
 }
