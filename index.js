@@ -2,10 +2,6 @@ const express = require("express");
 const helmet = require("helmet");
 require("dotenv").config();
 
-const PORT = process.env.PORT || 8080;
-const PUBLIC_PATH = process.env.PUBLIC_PATH;
-const REDIRECT_HOST = process.env.REDIRECT_HOST;
-
 // Obs! ved bruk av kode 301 - nettlesser lagrer route cache
 // Det trenges å slette cache i nettleser eller bruke inkognito mode ved endringer i routes
 // issue: Det kan påvirke på brukeren - endringer vil ikke fungere hos brukeren på grunn av cache
@@ -13,8 +9,11 @@ const REDIRECT_HOST = process.env.REDIRECT_HOST;
 // Info: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
 // Info: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/307
 
-const TEMPORARY_REDIRECT_CODE = 307; // Brukes ved test. I prod også
-const MOVED_PERMANENTLY_CODE = 301; // Brukes etter tester.
+const STATUS_CODE = 307; // Bruk 301 etter test
+
+const PORT = process.env.PORT || 8080;
+const PUBLIC_PATH = process.env.PUBLIC_PATH;
+const REDIRECT_HOST = process.env.REDIRECT_HOST;
 
 const app = express();
 
@@ -28,20 +27,20 @@ app.get(`/health/isAlive`, (req, res) => res.sendStatus(200));
 app.get(`/health/isReady`, (req, res) => res.sendStatus(200));
 
 app.get(`${PUBLIC_PATH}/`, (req, res) =>
-  res.redirect(TEMPORARY_REDIRECT_CODE, `${REDIRECT_HOST}/tar-vare-pa`)
+  res.redirect(STATUS_CODE, `${REDIRECT_HOST}/tar-vare-pa`)
 );
 
-// Redirect til soknad omsorgsdager-aleneomsorg
+// Redirect til søknad omsorgsdager-aleneomsorg
 // Til test. Kun PROD. Kan testes kun i prod.
 // https://www.nav.no/familie/sykdom-i-familien/soknad/omsorgsdager-aleneomsorg
 
 /*
 app.get(`${PUBLIC_PATH}/soknad/omsorgsdager-aleneomsorg`, (req, res) => {
-  res.redirect(TEMPORARY_REDIRECT_CODE, `${REDIRECT_HOST}/[NY INGRESS FOR ALENEOMSØRG DIALOG]}`);
+  res.redirect(STATUS_CODE, `${REDIRECT_HOST}/[NY INGRESS FOR ALENEOMSØRG DIALOG]}`);
 });
 */
 
-// Redirect til soknader
+// Redirect til søknader
 // Kun til prod. Kan testes kun i prod
 // https://www.nav.no/familie/sykdom-i-familien/soknad/*
 
@@ -50,7 +49,7 @@ app.get(`${PUBLIC_PATH}/soknad/*`, (req, res) => {
   const path = getSoknadRedirectPath(req.originalUrl);
 
   if (path) {
-    res.redirect(TEMPORARY_REDIRECT_CODE, `${REDIRECT_HOST}/${path}`);
+    res.redirect(STATUS_CODE, `${REDIRECT_HOST}/${path}`);
   } else {
     next();
   }
@@ -61,7 +60,7 @@ app.get(`${PUBLIC_PATH}/*`, (req, res, next) => {
   const path = getRedirectPath(req.originalUrl);
 
   if (path) {
-    res.redirect(TEMPORARY_REDIRECT_CODE, `${REDIRECT_HOST}/${path}`);
+    res.redirect(STATUS_CODE, `${REDIRECT_HOST}/${path}`);
   } else {
     next();
   }
