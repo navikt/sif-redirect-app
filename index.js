@@ -63,7 +63,7 @@ app.get(`${PUBLIC_PATH}/soknad/*`, (req, res) => {
 app.get(`${PUBLIC_PATH}/*`, (req, res, next) => {
   const path =
     req.originalUrl !== undefined && req.originalUrl !== null
-      ? getRedirectPath(req.originalUrl)
+      ? getRedirectPath(req.originalUrl.toLowerCase())
       : undefined;
 
   if (path) {
