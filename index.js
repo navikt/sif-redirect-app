@@ -50,7 +50,6 @@ app.get(`${PUBLIC_PATH}/soknad/omsorgsdager-aleneomsorg`, (req, res) => {
 
 /*
 app.get(`${PUBLIC_PATH}/soknad/*`, (req, res) => {
-  
   const path = getSoknadRedirectPath(req.originalUrl);
 
   if (path) {
