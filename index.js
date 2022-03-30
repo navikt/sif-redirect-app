@@ -36,14 +36,18 @@ app.get(`${PUBLIC_PATH}/`, (req, res) =>
 
 // Redirect til søknad omsorgsdager-aleneomsorg
 // Til test. Kun PROD. Kan testes kun i prod.
+// Testet. Fungerer ikke fordi søknader har egen ingress.
+// For å fikse det bør det slettes appservice - ingress ved sletting av poder av søknadsdialoger
 // https://www.nav.no/familie/sykdom-i-familien/soknad/omsorgsdager-aleneomsorg
-
+/*
 app.get(`${PUBLIC_PATH}/soknad/omsorgsdager-aleneomsorg`, (req, res) => {
   res.redirect(STATUS_CODE, `${REDIRECT_HOST}/soknader/nb/person`);
 });
-
+*/
 // Redirect til søknader
 // Kun til prod. Kan testes kun i prod
+// Testet. Fungerer ikke fordi søknader har egen ingress.
+// For å fikse det bør det slettes appservice - ingress ved sletting av poder av søknadsdialoger
 // https://www.nav.no/familie/sykdom-i-familien/soknad/*
 
 /*
