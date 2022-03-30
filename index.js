@@ -50,6 +50,7 @@ app.get(`${PUBLIC_PATH}/soknad/omsorgsdager-aleneomsorg`, (req, res) => {
 
 /*
 app.get(`${PUBLIC_PATH}/soknad/*`, (req, res) => {
+  
   const path = getSoknadRedirectPath(req.originalUrl);
 
   if (path) {
@@ -63,7 +64,7 @@ app.get(`${PUBLIC_PATH}/soknad/*`, (req, res) => {
 app.get(`${PUBLIC_PATH}/*`, (req, res, next) => {
   const path =
     req.originalUrl !== undefined && req.originalUrl !== null
-      ? getRedirectPath(req.originalUrl)
+      ? getRedirectPath(req.originalUrl.toLowerCase())
       : undefined;
 
   if (path) {
@@ -97,33 +98,33 @@ const getRedirectPath = (pathFromRequest) => {
     //
     // For arbeidsgiver:
     case "/arbeidsgiver":
-      return "arbeidsgiver-sykdom-i-familien";
+      return "arbeidsgiver/sykdom-i-familien";
 
     case "/arbeidsgiver/pleiepenger-for-arbeidsgiver":
-      return "arbeidsgiver-pleiepenger-barn";
+      return "arbeidsgiver/pleiepenger-barn";
     case "/arbeidsgiver/pleiepenger-for-person-over-18-ar-arbeidsgivers-rolle":
-      return "arbeidsgiver-pleiepenger-over-18";
+      return "arbeidsgiver/pleiepenger-over-18";
     case "/arbeidsgiver/pleiepenger-i-livets-sluttfase-arbeidsgivers-rolle":
-      return "arbeidsgiver-sykdom-i-familien";
+      return "arbeidsgiver/pleiepenger-i-livets-sluttfase";
     case "/arbeidsgiver/omsorgspenger-for-arbeidsgiver":
-      return "arbeidsgiver-omsorgspenger";
+      return "arbeidsgiver/omsorgspenger";
     case "/arbeidsgiver/opplaeringspenger-for-arbeidsgiver":
-      return "arbeidsgiver-opplaringspenger";
+      return "arbeidsgiver/opplaringspenger";
     //
     // For samarbeidspartner:
     case "/helsepersonell":
-      return "samarbeidspartner-sykdom-i-familien";
+      return "samarbeidspartner/sykdom-i-familien";
 
     case "/helsepersonell/pleiepenger-for-sykt-barn-legens-rolle":
-      return "samarbeidspartner-pleiepenger-barn";
+      return "samarbeidspartner/pleiepenger-barn";
     case "/helsepersonell/pleiepenger-for-person-over-18-ar-legens-rolle":
-      return "samarbeidspartner-pleiepenger-over-18";
+      return "samarbeidspartner/pleiepenger-over-18";
     case "/helsepersonell/pleiepenger-i-livets-sluttfase-legens-rolle":
-      return "samarbeidspartner-sluttfase";
+      return "samarbeidspartner/pleiepenger-sluttfase";
     case "/helsepersonell/omsorgspenger-legens-rolle":
-      return "samarbeidspartner-omsorgspenger";
+      return "samarbeidspartner/omsorgspenger";
     case "/helsepersonell/opplaeringspenger-legens-rolle":
-      return "samarbeidspartner-opplaringspenger";
+      return "samarbeidspartner/opplaringspenger";
     //
     default:
       return undefined;
