@@ -64,7 +64,6 @@ app.get(`${PUBLIC_PATH}/*`, (req, res, next) => {
     req.originalUrl !== undefined && req.originalUrl !== null
       ? getRedirectPath(req.originalUrl.toLowerCase())
       : undefined;
-
   if (path) {
     res.redirect(STATUS_CODE, `${REDIRECT_HOST}/${path}`);
   } else {
@@ -76,8 +75,8 @@ const getRedirectPath = (pathFromRequest) => {
   const path = pathFromRequest
     .replace(PUBLIC_PATH, "")
     .replace("/nn", "")
-    .replace("/nb", "");
-
+    .replace("/nb", "")
+    .replace(/\/$/gi, "");
   switch (path) {
     // For personbruker:
     case "":
