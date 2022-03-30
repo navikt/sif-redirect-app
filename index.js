@@ -66,7 +66,6 @@ app.get(`${PUBLIC_PATH}/*`, (req, res, next) => {
     req.originalUrl !== undefined && req.originalUrl !== null
       ? getRedirectPath(req.originalUrl.toLowerCase())
       : undefined;
-  console.log("path: ", path);
   if (path) {
     res.redirect(STATUS_CODE, `${REDIRECT_HOST}/${path}`);
   } else {
