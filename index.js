@@ -106,7 +106,7 @@ const getRedirectPath = (pathFromRequest) => {
     case "/arbeidsgiver/pleiepenger-for-person-over-18-ar-arbeidsgivers-rolle":
       return "arbeidsgiver/pleiepenger-over-18";
     case "/arbeidsgiver/pleiepenger-i-livets-sluttfase-arbeidsgivers-rolle":
-      return "arbeidsgiver/pleiepenger-i-livets-sluttfase";
+      return "arbeidsgiver/pleiepenger-sluttfase";
     case "/arbeidsgiver/omsorgspenger-for-arbeidsgiver":
       return "arbeidsgiver/omsorgspenger";
     case "/arbeidsgiver/opplaeringspenger-for-arbeidsgiver":
