@@ -13,6 +13,7 @@
   "readinessPath": "/familie/sykdom-i-familien/health/isReady",
   "env": {
     "PUBLIC_PATH": "/familie/sykdom-i-familien",
-    "REDIRECT_HOST": "https://www.nav.no"
+    "REDIRECT_HOST": "https://www.nav.no",
+    "NPM_CONFIG_CACHE": "/tmp"
   }
 }
