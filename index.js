@@ -17,7 +17,7 @@ const REDIRECT_HOST = process.env.REDIRECT_HOST;
 
 const app = express();
 
-server.use(
+app.use(
   helmet({
     contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false,
